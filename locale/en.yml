@@ -1,0 +1,40 @@
+avatar4eg-countries:
+  admin:
+    edit_country:
+      select_not_set: Not set
+      delete_country_button: Delete Country
+      delete_country_confirmation: "Are you sure you want to delete this country?"
+      title_label: => avatar4eg-countries.ref.title
+      title_placeholder: => avatar4eg-countries.ref.title
+      submit_button: => core.ref.save_changes
+      title: => avatar4eg-countries.ref.create_country
+      iso_label: => avatar4eg-countries.ref.iso
+      iso_placeholder: => avatar4eg-countries.ref.iso
+      description_label: => avatar4eg-countries.ref.description
+      description_placeholder: => avatar4eg-countries.ref.description
+      img_label: => avatar4eg-countries.ref.img
+      img_placeholder: => avatar4eg-countries.ref.img
+      tag_label: => avatar4eg-countries.ref.tag
+      tag_placeholder: => avatar4eg-countries.ref.tag
+      subtag_label: => avatar4eg-countries.ref.subtag
+      subtag_placeholder: => avatar4eg-countries.ref.subtag
+
+    countries:
+      about_text: Manage main site countries.
+      create_button: => avatar4eg-countries.ref.create_country
+      countries: => avatar4eg-countries.ref.countries
+      load_more_button: Other
+
+    nav:
+      countries_button: => avatar4eg-countries.ref.countries
+      countries_text: Manage main site countries list in search.
+
+  ref:
+    create_country: Create Country
+    title: Title
+    iso: ISO 3166-1 alpha-2
+    description: Description
+    img: Image
+    tag: Tag
+    subtag: Personal tag
+    countries: Countries

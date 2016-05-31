@@ -1,0 +1,31 @@
+{
+  "name": "avatar4eg/flarum-ext-countries",
+  "description": "Countries list for Flarum forum",
+  "type": "flarum-extension",
+  "keywords": ["country", "item"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nikolai Morozov",
+      "email": "avanmorozov@gmail.com"
+    }
+  ],
+  "require": {
+    "flarum/core": "^0.1.0-beta.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Avatar4eg\\Countries\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Countries",
+      "icon": {
+        "name": "globe",
+        "backgroundColor": "#19DE19",
+        "color": "#42067E"
+      }
+    }
+  }
+}

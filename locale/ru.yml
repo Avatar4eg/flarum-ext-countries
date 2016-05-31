@@ -1,0 +1,40 @@
+avatar4eg-countries:
+  admin:
+    edit_country:
+      select_not_set: Не указан
+      delete_country_button: Удалить страну
+      delete_country_confirmation: "Вы уверены что хотите удалить эту страну?"
+      title_label: => avatar4eg-countries.ref.title
+      title_placeholder: => avatar4eg-countries.ref.title
+      submit_button: => core.ref.save_changes
+      title: => avatar4eg-countries.ref.create_country
+      iso_label: => avatar4eg-countries.ref.iso
+      iso_placeholder: => avatar4eg-countries.ref.iso
+      description_label: => avatar4eg-countries.ref.description
+      description_placeholder: => avatar4eg-countries.ref.description
+      img_label: => avatar4eg-countries.ref.img
+      img_placeholder: => avatar4eg-countries.ref.img
+      tag_label: => avatar4eg-countries.ref.tag
+      tag_placeholder: => avatar4eg-countries.ref.tag
+      subtag_label: => avatar4eg-countries.ref.subtag
+      subtag_placeholder: => avatar4eg-countries.ref.subtag
+
+    countries:
+      about_text: Управление списком стран для главной страницы.
+      create_button: => avatar4eg-countries.ref.create_country
+      countries: => avatar4eg-countries.ref.countries
+      load_more_button: Другие
+
+    nav:
+      countries_button: => avatar4eg-countries.ref.countries
+      countries_text: Управление списком стран.
+
+  ref:
+    create_country: Создать страну
+    title: Название
+    iso: ISO 3166-1 alpha-2
+    description: Описание
+    img: Изображение
+    tag: Общий раздел
+    subtag: Раздел
+    countries: Страны
