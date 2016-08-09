@@ -18,6 +18,7 @@ avatar4eg-countries:
       tag_placeholder: => avatar4eg-countries.ref.tag
       subtag_label: => avatar4eg-countries.ref.subtag
       subtag_placeholder: => avatar4eg-countries.ref.subtag
+      image_hover: "Click to upload image"
 
     countries:
       about_text: Manage main site countries.

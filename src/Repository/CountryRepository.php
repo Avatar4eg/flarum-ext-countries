@@ -100,13 +100,25 @@ class CountryRepository
      */
     public function findByIds(array $ids)
     {
-        return Country::whereIn('id', $ids)->get();
+        $countries = Country::whereIn('id', $ids)->get();
+
+        $countries = $countries->sort(function ($a, $b) use ($ids) {
+            $aPos = array_search($a->id, $ids, false);
+            $bPos = array_search($b->id, $ids, false);
+
+            if ($aPos === $bPos) {
+                return 0;
+            }
+
+            return $aPos < $bPos ? -1 : 1;
+        });
+
+        return $countries;
     }
 
     /**
      * Get all countries
      *
-     * @param User|null $user
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function all()

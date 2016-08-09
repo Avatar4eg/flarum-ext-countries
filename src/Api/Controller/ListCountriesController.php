@@ -25,6 +25,11 @@ class ListCountriesController extends AbstractCollectionController
     ];
 
     /**
+     * {@inheritdoc}
+     */
+    public $sortFields = ['title'];
+
+    /**
      * @var CountryRepository
      */
     private $countries;

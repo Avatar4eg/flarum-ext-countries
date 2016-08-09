@@ -1,3 +1,4 @@
+import app from 'flarum/app';
 import Page from 'flarum/components/Page';
 import Button from 'flarum/components/Button';
 import LoadingIndicator from 'flarum/components/LoadingIndicator';
@@ -9,8 +10,6 @@ function CountryItem(country) {
         m('li', {"data-id": country.id()}, [
             m('div', {className: 'CountryListItem-info'}, [
                 m('span', {className: 'CountryListItem-name'}, [
-                    country.id(),
-                    '. ',
                     country.title()
                 ]),
                 Button.component({
@@ -96,7 +95,11 @@ export default class CountriesPage extends Page {
 
     loadResults(offset) {
         const params = {};
-        params.page = {offset};
+        params.page = {
+            offset: offset,
+            limit: 50
+        };
+        params.sort = 'title';
 
         return app.store.find('countries', params);
     }

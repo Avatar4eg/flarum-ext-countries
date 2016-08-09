@@ -35,12 +35,12 @@ System.register('avatar4eg/countries/addCountriesPane', ['flarum/extend', 'flaru
 });;
 'use strict';
 
-System.register('avatar4eg/countries/components/CountriesPage', ['flarum/components/Page', 'flarum/components/Button', 'flarum/components/LoadingIndicator', 'avatar4eg/countries/components/EditCountryModal'], function (_export, _context) {
-    var Page, Button, LoadingIndicator, EditCountryModal, CountriesPage;
+System.register('avatar4eg/countries/components/CountriesPage', ['flarum/app', 'flarum/components/Page', 'flarum/components/Button', 'flarum/components/LoadingIndicator', 'avatar4eg/countries/components/EditCountryModal'], function (_export, _context) {
+    var app, Page, Button, LoadingIndicator, EditCountryModal, CountriesPage;
 
 
     function CountryItem(country) {
-        return [m('li', { "data-id": country.id() }, [m('div', { className: 'CountryListItem-info' }, [m('span', { className: 'CountryListItem-name' }, [country.id(), '. ', country.title()]), Button.component({
+        return [m('li', { "data-id": country.id() }, [m('div', { className: 'CountryListItem-info' }, [m('span', { className: 'CountryListItem-name' }, [country.title()]), Button.component({
             className: 'Button Button--link',
             icon: 'pencil',
             onclick: function onclick() {
@@ -50,7 +50,9 @@ System.register('avatar4eg/countries/components/CountriesPage', ['flarum/compone
     }
 
     return {
-        setters: [function (_flarumComponentsPage) {
+        setters: [function (_flarumApp) {
+            app = _flarumApp.default;
+        }, function (_flarumComponentsPage) {
             Page = _flarumComponentsPage.default;
         }, function (_flarumComponentsButton) {
             Button = _flarumComponentsButton.default;
@@ -128,7 +130,11 @@ System.register('avatar4eg/countries/components/CountriesPage', ['flarum/compone
                     key: 'loadResults',
                     value: function loadResults(offset) {
                         var params = {};
-                        params.page = { offset: offset };
+                        params.page = {
+                            offset: offset,
+                            limit: 50
+                        };
+                        params.sort = 'title';
 
                         return app.store.find('countries', params);
                     }
@@ -161,10 +167,12 @@ System.register('avatar4eg/countries/components/CountriesPage', ['flarum/compone
 });;
 'use strict';
 
-System.register('avatar4eg/countries/components/EditCountryModal', ['flarum/components/Modal', 'flarum/components/Button', 'flarum/utils/string', 'flarum/components/Select'], function (_export, _context) {
-    var Modal, Button, slug, Select, EditCountryModal;
+System.register('avatar4eg/countries/components/EditCountryModal', ['flarum/app', 'flarum/components/Modal', 'flarum/components/Button', 'flarum/utils/string', 'flarum/components/Select'], function (_export, _context) {
+    var app, Modal, Button, slug, Select, EditCountryModal;
     return {
-        setters: [function (_flarumComponentsModal) {
+        setters: [function (_flarumApp) {
+            app = _flarumApp.default;
+        }, function (_flarumComponentsModal) {
             Modal = _flarumComponentsModal.default;
         }, function (_flarumComponentsButton) {
             Button = _flarumComponentsButton.default;
@@ -250,8 +258,11 @@ System.register('avatar4eg/countries/components/EditCountryModal', ['flarum/comp
                             value: this.itemTitle(),
                             oninput: m.withAttr('value', this.itemTitle)
                         })]), m('div', { className: 'Form-group' }, [m('label', {}, app.translator.trans('avatar4eg-countries.admin.edit_country.img_label')), m('a', {
+                            className: 'ImageButton',
                             onclick: this.upload.bind(this)
-                        }, [m('img', {
+                        }, [m('div', {
+                            className: 'ImageButtonText'
+                        }, app.translator.trans('avatar4eg-countries.admin.edit_country.image_hover')), m('img', {
                             class: 'ImageHolder',
                             src: this.img(),
                             style: 'width: 100%;'

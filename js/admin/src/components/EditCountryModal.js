@@ -1,3 +1,4 @@
+import app from 'flarum/app';
 import Modal from 'flarum/components/Modal';
 import Button from 'flarum/components/Button';
 import { slug } from 'flarum/utils/string';
@@ -86,8 +87,12 @@ export default class EditCountryModal extends Modal {
                         m('div', {className: 'Form-group'}, [
                             m('label', {}, app.translator.trans('avatar4eg-countries.admin.edit_country.img_label')),
                             m('a', {
+                                className: 'ImageButton',
                                 onclick: this.upload.bind(this)
                             }, [
+                                m('div', {
+                                    className: 'ImageButtonText',
+                                }, app.translator.trans('avatar4eg-countries.admin.edit_country.image_hover')),
                                 m('img', {
                                     class: 'ImageHolder',
                                     src: this.img(),

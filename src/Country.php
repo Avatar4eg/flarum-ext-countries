@@ -23,7 +23,7 @@ class Country extends AbstractModel
     /**
      * Create a new country.
      *
-     * @param string $name
+     * @param string $title
      * @param string $iso
      * @param string $img
      * @param string $description
@@ -31,11 +31,11 @@ class Country extends AbstractModel
      * @param int $personal_tag_id
      * @return static
      */
-    public static function build($name, $iso, $img = null, $description = null, $tag_id = null, $personal_tag_id = null)
+    public static function build($title, $iso, $img = null, $description = null, $tag_id = null, $personal_tag_id = null)
     {
         $country = new static;
 
-        $country->title             = $name;
+        $country->title             = $title;
         $country->iso               = $iso;
         $country->img               = $img;
         $country->description       = $description;
